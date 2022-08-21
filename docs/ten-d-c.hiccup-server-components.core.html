@@ -13,7 +13,7 @@
 <p><code>local-components</code>: (Optional) A map of component configuration. Components defined here will overwrite components registered with <code>-&gt;reg-component</code> for this function call only.</p>
 </li>
 </ul>
-</div></div></div><div class="public anchor" id="var--.3Ehtml"><h3>-&gt;html</h3><div class="usage"><code>(-&gt;html hiccup-data local-components)</code><code>(-&gt;html hiccup-data)</code></div><div class="doc"><div class="markdown"><p>Takes a Hiccup data, that can include component references, and returns the generated HTML.</p>
+</div></div></div><div class="public anchor" id="var--.3Ehtml"><h3>-&gt;html</h3><div class="usage"><code>(-&gt;html hiccup-data local-components)</code><code>(-&gt;html hiccup-data)</code></div><div class="doc"><div class="markdown"><p>Takes <code>hiccup-data</code>, that can include component references, and returns the generated HTML.</p>
 <ul>
 <li>
 <p><code>hiccup-data</code>: The hiccup data to process which may include references to components.</p>
@@ -22,7 +22,7 @@
 <p><code>local-components</code>: (Optional) A map of component configuration. Components defined here will overwrite components registered with <code>-&gt;reg-component</code> for this function call only.</p>
 </li>
 </ul>
-</div></div></div><div class="public anchor" id="var--.3Ehtml-file"><h3>-&gt;html-file</h3><div class="usage"><code>(-&gt;html-file file-path hiccup-data)</code><code>(-&gt;html-file file-path hiccup-data local-components)</code></div><div class="doc"><div class="markdown"><p>Takes a <code>file-path</code> and a <code>hiccup-data</code>, that can include component references, and saves the generated HTML to the given <code>file-path</code>.</p>
+</div></div></div><div class="public anchor" id="var--.3Ehtml-file"><h3>-&gt;html-file</h3><div class="usage"><code>(-&gt;html-file file-path hiccup-data)</code><code>(-&gt;html-file file-path hiccup-data local-components)</code></div><div class="doc"><div class="markdown"><p>Takes a <code>file-path</code> and <code>hiccup-data</code>, that can include component references, and saves the generated HTML to the given <code>file-path</code>.</p>
 <ul>
 <li>
 <p><code>file-path</code>: The file path to save the outputed HTML to.</p>
@@ -34,9 +34,9 @@
 <p><code>local-components</code>: (Optional) A map of component configuration. Components defined here will overwrite components registered with <code>-&gt;reg-component</code> for that function call only.</p>
 </li>
 </ul>
-</div></div></div><div class="public anchor" id="var-all-components"><h3>all-components</h3><div class="usage"><code>(all-components)</code></div><div class="doc"><div class="markdown"><p>Lists all components and their associated metadata</p>
+</div></div></div><div class="public anchor" id="var-all-components"><h3>all-components</h3><div class="usage"><code>(all-components)</code></div><div class="doc"><div class="markdown"><p>Lists all registered components and their associated metadata</p>
 </div></div></div><div class="public anchor" id="var-clear-components"><h3>clear-components</h3><div class="usage"><code>(clear-components)</code></div><div class="doc"><div class="markdown"><p>Clears all components that where registered using <code>-&gt;reg-component</code></p>
-</div></div></div><div class="public anchor" id="var-component-.3Ehtml"><h3>component-&gt;html</h3><div class="usage"><code>(component-&gt;html component-element-name)</code><code>(component-&gt;html component-element-name params)</code><code>(component-&gt;html component-element-name params local-components)</code></div><div class="doc"><div class="markdown"><p>Provides the convenience of not needing to construct hiccup data by generating HTML of a component with the given <code>component-element-name</code>.</p>
+</div></div></div><div class="public anchor" id="var-component-.3Ehtml"><h3>component-&gt;html</h3><div class="usage"><code>(component-&gt;html component-element-name)</code><code>(component-&gt;html component-element-name params)</code><code>(component-&gt;html component-element-name params local-components)</code></div><div class="doc"><div class="markdown"><p>Generates and returns HTML of a component with the given <code>component-element-name</code>.</p>
 <p>Useful for generating the HTML of top-level web pages granted they are registered as component.</p>
 <ul>
 <li>
@@ -49,7 +49,7 @@
 <p><code>local-components</code>: (Optional) A map of component configuration. Components defined here will overwrite components registered with <code>-&gt;reg-component</code> for that function call only.</p>
 </li>
 </ul>
-</div></div></div><div class="public anchor" id="var-component-.3Ehtml-file"><h3>component-&gt;html-file</h3><div class="usage"><code>(component-&gt;html-file file-path component-element-name)</code><code>(component-&gt;html-file file-path component-element-name params)</code><code>(component-&gt;html-file file-path component-element-name params local-components)</code></div><div class="doc"><div class="markdown"><p>Provides the convenience of not needing to construct hiccup data by generating HTML of a component with the given <code>component-element-name</code> and saving the output to the given <code>file-path</code>.</p>
+</div></div></div><div class="public anchor" id="var-component-.3Ehtml-file"><h3>component-&gt;html-file</h3><div class="usage"><code>(component-&gt;html-file file-path component-element-name)</code><code>(component-&gt;html-file file-path component-element-name params)</code><code>(component-&gt;html-file file-path component-element-name params local-components)</code></div><div class="doc"><div class="markdown"><p>Generates the HTML of a component with the given <code>component-element-name</code> and saves the output to the given <code>file-path</code>.</p>
 <p>Useful for generating HTML files of top-level web pages granted they are registered as component.</p>
 <ul>
 <li>
@@ -70,10 +70,10 @@
 <pre><code>({:component-namespace "ux.components", :total-components 2}
  {:component-namespace "ux.layouts", :total-components 2})
 </code></pre>
-</div></div></div><div class="public anchor" id="var-get-component-docs"><h3>get-component-docs</h3><div class="usage"><code>(get-component-docs element-name)</code></div><div class="doc"><div class="markdown"><p>Gets component documentation (a map including a <code>doc</code> and <code>example</code>/<code>examples</code> key if availible) from it’s metadata that was associated with the component when registered via <code>reg-component</code></p>
+</div></div></div><div class="public anchor" id="var-get-component-docs"><h3>get-component-docs</h3><div class="usage"><code>(get-component-docs element-name)</code></div><div class="doc"><div class="markdown"><p>Gets component documentation (a map including a <code>doc</code> and <code>example</code> / <code>examples</code> key if availible) from it’s metadata that was associated with the component when registered via <code>reg-component</code></p>
 </div></div></div><div class="public anchor" id="var-get-component-meta-data"><h3>get-component-meta-data</h3><div class="usage"><code>(get-component-meta-data element-name)</code></div><div class="doc"><div class="markdown"><p>Gets component metadata that was associated with the component when registered via <code>reg-component</code></p>
-</div></div></div><div class="public anchor" id="var-javascript"><h3>javascript</h3><div class="usage"><code>(javascript &amp; javascript)</code></div><div class="doc"><div class="markdown"><p>Converts provided <code>javascript</code> into an unescaped string, prevents escaped javascript strings allowing the javascript to be executed by the browser.  Used for including javascript in Hiccup data.</p>
-</div></div></div><div class="public anchor" id="var-raw-html"><h3>raw-html</h3><div class="usage"><code>(raw-html &amp; html)</code></div><div class="doc"><div class="markdown"><p>Converts provided <code>html</code> into an unescaped string, allowing the HTML to be rendered by the browser. Used for including strings that contain HTML markup</p>
+</div></div></div><div class="public anchor" id="var-javascript"><h3>javascript</h3><div class="usage"><code>(javascript &amp; javascript)</code></div><div class="doc"><div class="markdown"><p>Converts provided <code>javascript</code> into an unescaped string, allowing the javascript to be executed by the browser. Used for including executable javascript in Hiccup data.</p>
+</div></div></div><div class="public anchor" id="var-raw-html"><h3>raw-html</h3><div class="usage"><code>(raw-html &amp; html)</code></div><div class="doc"><div class="markdown"><p>Converts provided <code>html</code> into an unescaped string, allowing the HTML to be rendered by the browser. Used for including strings that contain HTML markup that should not be escaped.</p>
 </div></div></div><div class="public anchor" id="var-reg-component"><h3>reg-component</h3><div class="usage"><code>(reg-component element-name component-meta-data component)</code><code>(reg-component element-name component)</code></div><div class="doc"><div class="markdown"><p>Registers a component with the given <code>element-name</code> (must be a qualified keyword e.g <code>:my-components/login-form</code>) where the given <code>component</code> can be either a pure function that returns Hiccup data, a vector (representing Hiccup data) or a string.</p>
 <p>Once a component is registered it can be referenced in Hiccup data by its qualified keyword.</p>
 <p>Supported parameters:</p>
